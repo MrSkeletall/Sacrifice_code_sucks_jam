@@ -16,17 +16,11 @@ public class WeaponManager : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void setWeapon(GameObject weapon)
     {
         GameObject newWeapon = Instantiate(weapon, transform.position, Quaternion.identity);
 
-        hand.currentHeld = newWeapon;
+        hand.CurrentHeld = newWeapon;
     }
 
     

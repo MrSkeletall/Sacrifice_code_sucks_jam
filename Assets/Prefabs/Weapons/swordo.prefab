@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1391784641172356132}
   - component: {fileID: 1391784641172356155}
   - component: {fileID: 1391784641172356135}
+  - component: {fileID: 2538873973781803187}
   m_Layer: 0
   m_Name: swordo
   m_TagString: Untagged
@@ -126,7 +127,7 @@ Animation:
   m_Animations:
   - {fileID: 7400000, guid: e8bc06af9acef804f8a6060953d15bbb, type: 2}
   m_WrapMode: 0
-  m_PlayAutomatically: 1
+  m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
 --- !u!114 &1391784641172356135
@@ -139,5 +140,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ecf5e70669235c645830dfea71331f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2538873973781803187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1391784641172356154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5245e2b04e50e548a3714ad47bd604a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

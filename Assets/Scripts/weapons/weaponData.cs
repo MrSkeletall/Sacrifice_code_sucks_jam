@@ -4,8 +4,17 @@ using UnityEngine;
 
 public class weaponData : MonoBehaviour
 {
+    
+
+    
+    
     // Start is called before the first frame update
-    void Start()
+    private void Awake()
+    {
+        
+    }
+
+    private void Start()
     {
         
     }
@@ -13,6 +22,9 @@ public class weaponData : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+       
     }
+
+    
+
 }

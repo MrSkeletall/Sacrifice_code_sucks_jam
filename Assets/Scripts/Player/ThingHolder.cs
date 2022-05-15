@@ -14,12 +14,27 @@ public class ThingHolder : MonoBehaviour
 
     //SerializeField sounds scarey, but it just allows you to see private vairables in the editor, so you can change it there
     [SerializeField] float throwPower = 10f;
+    public Transform armPivot;
 
 
     //active item in hand
-    public GameObject currentHeld;
+    private GameObject currentHeld;
+    public GameObject CurrentHeld
+    {
+        get
+        {
+            return currentHeld;
+        }
+        set
+        {
+            currentHeld = value; 
+        }
+    }
+
+
     GameObject storedWeapon;
     bool enemyHeld = false;
+    bool pointedLeft = false;
 
 
     //for the GrabEnemy(); function, needed because the circle check would return the player collider instead of the enemys collider
@@ -32,6 +47,8 @@ public class ThingHolder : MonoBehaviour
     {
         //the enemys are on a layer called grab
         grabMask = LayerMask.GetMask("Grab");
+        
+        
 
     }
 
@@ -112,10 +129,36 @@ public class ThingHolder : MonoBehaviour
         currentHeld.transform.position = transform.position;
 
         currentHeld.transform.rotation = transform.rotation;
+        flipWeapon();
+    }
+
+    //massive pain in the ass, and there was probably a better way, rip 6 hours and any hopes of finishing this
+    void flipWeapon()
+    {
+        float currentRot = armPivot.transform.rotation.eulerAngles.z;
+
+        //check if current rot is within a particular range
+        pointedLeft = currentRot >= 90f && currentRot <= 270;
+
+        //Debug.Log("local rot:" + currentRot + "pointed left = " + pointedLeft);
+
+        switch (pointedLeft)
+        {
+            case true:
+                currentHeld.transform.localScale = -Vector3.one;
+                break;
+
+            default:
+                currentHeld.transform.localScale = Vector3.one;
+                break;
+        }
+        
+
+
 
     }
 
 
-    
+
 
 }

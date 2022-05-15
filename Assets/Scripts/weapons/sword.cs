@@ -25,5 +25,18 @@ public class sword : MonoBehaviour
         {
             ani.Play();
         }
+        
     }
+
+    public void onSwordAttack()
+    {
+        
+        Collider2D[] swordHits = Physics2D.OverlapCircleAll(transform.position + transform.up, 2);
+
+        foreach(Collider2D hit in swordHits)
+        {
+            Debug.Log("you hit: " + hit);
+        }
+    }
+
 }

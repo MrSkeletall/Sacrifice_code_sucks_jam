@@ -6,18 +6,20 @@ public class AimShoot : MonoBehaviour
 {
     //refrence to the camera of the scene, to acess mouse pos
     Camera cam;
-    
+    [SerializeField] Transform hand;
 
     // Start is called before the first frame update
     void Start()
     {
         cam = Camera.main;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         rotato();
+        //flipWeapon();
     }
 
     void rotato()
@@ -30,8 +32,12 @@ public class AimShoot : MonoBehaviour
         Vector2 offset = new Vector2(mousePos.x - playerScreenPoint.x, mousePos.y - playerScreenPoint.y);
         //math function that turns the dot product into radians, which then gets converted to degrees
         float angle = Mathf.Atan2(offset.y, offset.x) * Mathf.Rad2Deg;
+        //Debug.Log("offser: " + offset + "angle: " + angle);
 
         //feed the degrees into the funny quaternion function 
         transform.localRotation = Quaternion.Euler(0, 0, angle);
     }
+
+
+    
 }
