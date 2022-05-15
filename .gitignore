@@ -15,9 +15,8 @@
 
 #unity files
 /*
-!/Sacrifice
-/Sacrifice/*
-!/Sacrifice/Assets
+!/Sacrifice/
+!/Assets
 
 # Mono auto generated files
 mono_crash.*

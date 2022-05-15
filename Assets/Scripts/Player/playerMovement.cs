@@ -9,6 +9,7 @@ public class playerMovement : MonoBehaviour
     public float jumpHeight = 6.5f;
     public float gravityScale = 1.5f;
 
+
     //scrapped
     //public Camera mainCamera;
     //Vector3 cameraPos;
