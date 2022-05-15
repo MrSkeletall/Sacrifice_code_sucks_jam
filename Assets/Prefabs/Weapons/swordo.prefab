@@ -10,10 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1391784641172356134}
   - component: {fileID: 1391784641172356133}
-  - component: {fileID: 1391784641172356132}
   - component: {fileID: 1391784641172356155}
   - component: {fileID: 1391784641172356135}
-  - component: {fileID: 2538873973781803187}
+  - component: {fileID: -7686250079180305990}
   m_Layer: 0
   m_Name: swordo
   m_TagString: Untagged
@@ -88,32 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &1391784641172356132
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1391784641172356154}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.6}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.2}
-    oldSize: {x: 0.44444445, y: 2}
-    newSize: {x: 0.44444445, y: 2}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.44444445, y: 2}
-  m_EdgeRadius: 0
 --- !u!111 &1391784641172356155
 Animation:
   m_ObjectHideFlags: 0
@@ -142,7 +115,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecf5e70669235c645830dfea71331f7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2538873973781803187
+  wData: {fileID: -7686250079180305990}
+--- !u!114 &-7686250079180305990
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -154,3 +128,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5245e2b04e50e548a3714ad47bd604a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 72
+  bullets: 999
+  damage: 10
