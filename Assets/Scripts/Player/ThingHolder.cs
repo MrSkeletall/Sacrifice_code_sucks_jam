@@ -7,8 +7,8 @@ public class ThingHolder : MonoBehaviour
     ///----------------explanation----------
     ///this script is on the hand of the player, and is intended to manage the active weapon, 
     ///and allow the player to pick up dead enemys and throw them
-    
-    
+
+    WeaponManager wManager;
     
     
 
@@ -27,6 +27,7 @@ public class ThingHolder : MonoBehaviour
         }
         set
         {
+            Destroy(currentHeld);
             currentHeld = value; 
         }
     }
@@ -132,7 +133,7 @@ public class ThingHolder : MonoBehaviour
         flipWeapon();
     }
 
-    //massive pain in the ass, and there was probably a better way, rip 6 hours and any hopes of finishing this
+    //massive pain in the ass but it works,  there was probably a better way... rip 6 hours and any hopes of finishing this
     void flipWeapon()
     {
         float currentRot = armPivot.transform.rotation.eulerAngles.z;
@@ -141,7 +142,7 @@ public class ThingHolder : MonoBehaviour
         pointedLeft = currentRot >= 90f && currentRot <= 270;
 
         //Debug.Log("local rot:" + currentRot + "pointed left = " + pointedLeft);
-
+        
         switch (pointedLeft)
         {
             case true:

@@ -7,6 +7,7 @@ public class weaponData : MonoBehaviour
     public LayerMask enemyLayer;
     public int bullets;
     public int damage;
+    public float bulletSpeed;
 
 
     //class constructors
@@ -28,13 +29,18 @@ public class weaponData : MonoBehaviour
 
     //funkofunctions
 
-    public void weaponInit()
+    public void swordInit()
     {
         //precaution
         enemyLayer = LayerMask.GetMask("Enemy", "Grab");
     }
 
-
+    public void gunInit(int ammoCount, int shotDam, float bulletSpeed)
+    {
+        bullets = ammoCount;
+        damage = shotDam;
+        bulletSpeed = this.bulletSpeed;
+    }
     public void addDamage()
     {
 

@@ -8,6 +8,27 @@ public class WeaponManager : MonoBehaviour
 
     ThingHolder hand;
 
+    int weaponId;
+    public int WeaponId
+    {
+        get
+        {
+            return weaponId;
+        }
+        set
+        {
+            weaponId = value;
+            setWeapon(weapons[weaponId]);
+        }
+    }
+
+
+    /* weapon id list
+     * weapons[0] = sword
+     * weapons[1] = pistol
+     * weapons[2] = 
+     */
+
     // Start is called before the first frame update
     void Start()
     {

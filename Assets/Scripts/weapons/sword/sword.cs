@@ -41,6 +41,13 @@ public class sword : MonoBehaviour
         foreach(Collider2D Enemyhit in swordHits)
         {
             Debug.Log("you hit: " + Enemyhit);
+            //if its a corspe, send it flying because its fun
+            if (Enemyhit.CompareTag("DeadEnemy"))
+            {
+                Enemyhit.GetComponent<Rigidbody2D>().AddForce(transform.right * wData.damage, ForceMode2D.Impulse);
+                return;
+            }
+
             Enemyhit.GetComponent<enemyData>().dealDamage(wData.damage);
         }
     }
