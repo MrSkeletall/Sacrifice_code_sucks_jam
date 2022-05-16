@@ -7,7 +7,7 @@ public class WeaponManager : MonoBehaviour
     public GameObject[] weapons;
 
     ThingHolder hand;
-
+    
     int weaponId;
     public int WeaponId
     {
@@ -39,8 +39,10 @@ public class WeaponManager : MonoBehaviour
 
     public void setWeapon(GameObject weapon)
     {
-        GameObject newWeapon = Instantiate(weapon, transform.position, Quaternion.identity);
 
+        GameObject newWeapon = Instantiate(weapon, transform.position, Quaternion.identity);
+        
+        
         hand.CurrentHeld = newWeapon;
     }
 

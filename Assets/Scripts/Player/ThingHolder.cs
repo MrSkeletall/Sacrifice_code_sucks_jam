@@ -43,6 +43,11 @@ public class ThingHolder : MonoBehaviour
     LayerMask grabMask;
     Vector3 holdOffset = new Vector3(1, 0, 0);
 
+    private void Awake()
+    {
+        wManager = GetComponent<WeaponManager>();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -137,22 +142,44 @@ public class ThingHolder : MonoBehaviour
     void flipWeapon()
     {
         float currentRot = armPivot.transform.rotation.eulerAngles.z;
+        int weaponId = wManager.WeaponId;
 
-        //check if current rot is within a particular range
+        //check if current rot is within a particular range in a rather hardcoded way
         pointedLeft = currentRot >= 90f && currentRot <= 270;
 
         //Debug.Log("local rot:" + currentRot + "pointed left = " + pointedLeft);
-        
-        switch (pointedLeft)
+
+        switch (weaponId)
         {
-            case true:
-                currentHeld.transform.localScale = -Vector3.one;
+            case 0:
+                if (pointedLeft)
+                {
+
+                    currentHeld.transform.localScale = -Vector3.one;
+                }
+                else
+                {
+                    currentHeld.transform.localScale = Vector3.one;
+                }
                 break;
 
             default:
-                currentHeld.transform.localScale = Vector3.one;
+                if (pointedLeft)
+                {
+
+                    currentHeld.transform.localScale = new Vector3(1, -1, 1);
+                }
+                else
+                {
+                    currentHeld.transform.localScale = Vector3.one;
+                }
                 break;
+
+
         }
+
+        
+        
         
 
 
