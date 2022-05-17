@@ -5,7 +5,9 @@ using Pathfinding;
 
 public class enemySpriteFlip : MonoBehaviour
 {
-    
+    SpriteRenderer enemySprite;
+    AIPath aiPath;
+
 
     private void Awake()
     {

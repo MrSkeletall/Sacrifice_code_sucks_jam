@@ -6,17 +6,22 @@ public class GameManager : MonoBehaviour
 {
 
     //enemySpawns
-    public Transform[] weaponSpawns;
     public Transform[] enemySpawns;
+
+    public GameObject[] weaponDrops;
+    public Transform[] weaponSpawns;
+    
+
 
     public GameObject enemy;
 
     public int maxEnemys = 2;
+
     GameObject[] currentEnemys;
 
     //scoreing event
     public int scoreEvent = 100;
-    int nextEventThreshold;
+    
 
     //components to grab
     //Canvas uiCanvas;
@@ -34,7 +39,9 @@ public class GameManager : MonoBehaviour
     IEnumerator SpawnCorutine(Transform[] spawnPoints)
     {
         currentEnemys = GameObject.FindGameObjectsWithTag("Enemy");
-        while(currentEnemys.Length < maxEnemys)
+        int i = 0;
+        int m = i % 10;
+        while(currentEnemys.Length < maxEnemys + m)
         {
             Vector3 spawnPoint = spawnPoints[Random.Range(0, enemySpawns.Length)].position;
             Instantiate(enemy, spawnPoint, Quaternion.identity);
@@ -47,10 +54,39 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(3);
     }
 
-    void scoreEvents()
+    private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            spawnWeapon();
+        }
+    }
+
+    public void score(int points)
+    {
+        scoreSystem.AddScore(points);
+
+        if(scoreSystem.SliderValue >= 100)
+        {
+            Debug.Log("spawning weapon");
+            spawnWeapon();
+            scoreSystem.SliderValue = 0;
+        }
+    }
+
+    void spawnWeapon()
+    {
+        Vector3 spawnOffset = new Vector3(Random.Range(-2, 2), 0, 0);
+        int weaponIndex = Random.Range(0, weaponDrops.Length);
+        Transform spawnPoint = weaponSpawns[Random.Range(0, weaponSpawns.Length)];
+        spawnPoint.position = spawnPoint.position;
+        
+       
+        Instantiate(weaponDrops[weaponIndex], spawnPoint, false);
 
     }
+
+    
     
 
 }

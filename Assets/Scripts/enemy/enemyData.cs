@@ -6,17 +6,24 @@ using Pathfinding;
 public class enemyData : MonoBehaviour
 {
     AIDestinationSetter aiTarget;
+    GameManager gameManager;
 
     int health = 20;
     int currentHealth;
-    public float pointValue;
+    public int pointValue;
     [SerializeField] GameObject corpse;
+
+    private void Awake()
+    {
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
+        aiTarget = GetComponent<AIDestinationSetter>();
+    }
 
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = health;
-        aiTarget = GetComponent<AIDestinationSetter>();
+        
         aiTarget.target = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
@@ -39,6 +46,7 @@ public class enemyData : MonoBehaviour
     void enemyDeath()
     {
         Instantiate(corpse, transform.position, Quaternion.identity);
+        gameManager.score(pointValue);
         Destroy(gameObject);
     }
 

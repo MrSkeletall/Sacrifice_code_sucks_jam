@@ -12,7 +12,7 @@ public class scoreSystem : MonoBehaviour
 
     //score system
     int score = 0;
-    public float sliderValue = 0;
+    float sliderValue = 0;
     public float SliderValue
     {
         get
@@ -26,27 +26,24 @@ public class scoreSystem : MonoBehaviour
     }
 
     Slider slider;
-    GameManager gameManager;
+    //GameManager gameManager;
 
     // Start is called before the first frame update
     void Start()
     {
         slider = GetComponentInChildren<Slider>();
         scoreText.text = "Score: " + score.ToString();
-        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
+        //gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
         setSlider();
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            SliderValue = 100;
-        }
+        
     }
 
-    public void setScore(int pointsAdded)
+    public void AddScore(int pointsAdded)
     {
         score += pointsAdded;
         sliderValue += pointsAdded;
@@ -55,9 +52,9 @@ public class scoreSystem : MonoBehaviour
 
     void setSlider()
     {
-        if (slider.value <= sliderValue)
+        if (slider.value != sliderValue)
         {
-            slider.value = Mathf.Lerp(slider.value, sliderValue, 0.2f);
+            slider.value = Mathf.Lerp(slider.value, sliderValue, 1.2f * Time.deltaTime);
         }
     }
 

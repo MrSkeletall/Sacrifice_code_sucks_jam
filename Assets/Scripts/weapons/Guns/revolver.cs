@@ -8,11 +8,13 @@ public class revolver : MonoBehaviour
     [SerializeField] Transform firePoint;
     public GameObject bulletPrefab;
     weaponData wData;
+    WeaponManager wManager;
 
     private void Awake()
     {
         //firePoint = GetComponentInChildren<Transform>();
         wData = GetComponent<weaponData>();
+        wManager = GameObject.Find("Player").GetComponentInChildren<WeaponManager>();
     }
 
 
@@ -28,7 +30,14 @@ public class revolver : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             fire();
+            wData.bullets--;
         }
+        if(wData.bullets <= 0)
+        {
+            Destroy(gameObject);
+            wManager.WeaponId = 0;
+        }
+
     }
 
     void fire()
