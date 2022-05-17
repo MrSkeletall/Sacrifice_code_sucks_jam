@@ -6,10 +6,13 @@ public class weaponPickup : MonoBehaviour
 {
     public int weaponId;
     Canvas pickupText;
+    //LayerMask layer;
 
+    
     private void Awake()
     {
         pickupText = GetComponentInChildren<Canvas>();
+        //layer = LayerMask.GetMask("Level");
     }
 
 
@@ -19,16 +22,20 @@ public class weaponPickup : MonoBehaviour
         pickupText.enabled = false;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+   
     private void OnTriggerEnter2D(Collider2D other)
     {
         pickupText.enabled = true;
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+        pickupText.enabled = false;
+    }
+
+   
+    
+    
 
 
 }

@@ -50,21 +50,5 @@ public class pickUpWeapon : MonoBehaviour
 
     }
 
-    /*private void OnTriggerStay2D(Collider2D collision)
-    {
-        Debug.Log("in collider");
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            Debug.Log("key pressed in collider");
-            if (collision.tag == "Pickup")
-            {
-                weaponPickup pickup = collision.GetComponent<weaponPickup>();
-                int wepId = pickup.weaponId;
-                weaponManager.WeaponId = wepId;
-                Destroy(collision.gameObject, 0.1f);
-                
-            }
-        }
-    }*/
-
+    
 }

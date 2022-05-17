@@ -1,16 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
 public class enemyData : MonoBehaviour
 {
+    AIDestinationSetter aiTarget;
+
     int health = 20;
     int currentHealth;
+    public float pointValue;
+    [SerializeField] GameObject corpse;
 
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = health;
+        aiTarget = GetComponent<AIDestinationSetter>();
+        aiTarget.target = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     // Update is called once per frame
@@ -31,7 +38,8 @@ public class enemyData : MonoBehaviour
 
     void enemyDeath()
     {
-        Debug.Log(gameObject.name + " in theroy would be dead");
+        Instantiate(corpse, transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
 
 }
