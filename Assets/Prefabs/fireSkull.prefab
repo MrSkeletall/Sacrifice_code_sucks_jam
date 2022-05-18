@@ -215,7 +215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3741bbf035647e4478573f6b428243fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointValue: 10
+  pointValue: 15
   corpse: {fileID: 338781702203507534, guid: 7e0dc5ced1fa23745a5ccdbc4572362f, type: 3}
 --- !u!95 &5757046324173852628
 Animator:
