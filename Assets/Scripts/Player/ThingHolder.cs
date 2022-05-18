@@ -138,7 +138,7 @@ public class ThingHolder : MonoBehaviour
         flipWeapon();
     }
 
-    //massive pain in the ass but it works,  there was probably a better way... rip 6 hours and any hopes of finishing this
+    
     void flipWeapon()
     {
         float currentRot = armPivot.transform.rotation.eulerAngles.z;
