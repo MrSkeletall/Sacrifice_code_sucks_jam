@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class playerDeath : MonoBehaviour
 {
@@ -9,16 +10,22 @@ public class playerDeath : MonoBehaviour
 
     int health = 3;
     bool canTakeDam = true;
-    Animation anim;
+    TMP_Text  healthUi;
+
 
 
     void Start()
     {
-        GetComponent<Animation>();
+        healthUi = GameObject.Find("Health").GetComponent<TMP_Text>();
     }
 
     // Update is called once per frame
-   
+
+    private void Update()
+    {
+        die();
+        healthUi.text = "Health [" + health.ToString() + "]";
+    }
 
     void die()
     {
@@ -28,14 +35,15 @@ public class playerDeath : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
             if(canTakeDam == true)
             {
-                anim.Play();
+                
                 health--;
+                healthUi.text = "Health [" + health.ToString() + "]";
                 canTakeDam = false;
                 Invoke("allowHits", 2f);
             }

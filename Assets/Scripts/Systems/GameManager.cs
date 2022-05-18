@@ -78,11 +78,12 @@ public class GameManager : MonoBehaviour
     {
         Vector3 spawnOffset = new Vector3(Random.Range(-2, 2), 0, 0);
         int weaponIndex = Random.Range(0, weaponDrops.Length);
+        int spawnIndex = Random.Range(0, weaponSpawns.Length);
         Transform spawnPoint = weaponSpawns[Random.Range(0, weaponSpawns.Length)];
-        spawnPoint.position = spawnPoint.position;
+        
         
        
-        Instantiate(weaponDrops[weaponIndex], spawnPoint, false);
+        Instantiate(weaponDrops[weaponIndex], spawnPoint);
 
     }
 

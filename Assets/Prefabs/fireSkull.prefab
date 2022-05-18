@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 7444006826013858183}
   - component: {fileID: 7444006826013858200}
   - component: {fileID: 7444006826013858201}
+  - component: {fileID: -2233456249784246048}
   m_Layer: 6
   m_Name: fireSkull
   m_TagString: Enemy
@@ -216,3 +217,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointValue: 10
   corpse: {fileID: 338781702203507534, guid: 7e0dc5ced1fa23745a5ccdbc4572362f, type: 3}
+--- !u!111 &-2233456249784246048
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7444006826013858177}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6558595952545304183}
   - component: {fileID: 6558595952545304168}
   - component: {fileID: 4524787159733785799}
+  - component: {fileID: 808157737142595863}
   m_Layer: 0
   m_Name: tempBullet
   m_TagString: Untagged
@@ -123,3 +124,15 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.49999997
+--- !u!114 &808157737142595863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6558595952545304170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58cf890038065914ba6eebeed1162bd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

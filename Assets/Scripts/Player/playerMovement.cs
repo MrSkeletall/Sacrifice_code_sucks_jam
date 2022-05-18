@@ -8,7 +8,7 @@ public class playerMovement : MonoBehaviour
     public float maxSpeed = 3.4f;
     public float jumpHeight = 6.5f;
     public float gravityScale = 1.5f;
-
+    Animator playerAnimator;
 
 
     //facingRight stuff in case I don't feel like adding an alt set of sprites faceing the other direction
@@ -28,6 +28,7 @@ public class playerMovement : MonoBehaviour
         t = transform;
         r2d = GetComponent<Rigidbody2D>();
         mainCollider = GetComponent<CapsuleCollider2D>();
+        playerAnimator = GetComponentInChildren<Animator>();
         //in case physics system does something funny 
         r2d.freezeRotation = true;
         //
@@ -64,6 +65,8 @@ public class playerMovement : MonoBehaviour
 
         ///velocity vector
         moveDirection = InputDir();
+        SetAnim();
+
 
         //check if the player is on the ground... hence the name ground check
         GroundCheck();
@@ -76,6 +79,21 @@ public class playerMovement : MonoBehaviour
         }
 
        
+    }
+
+    void SetAnim()
+    {
+        
+
+        if(moveDirection != 0f)
+        {
+            playerAnimator.Play("PlayerWalk");
+        }
+        else
+        {
+            playerAnimator.Play("playerIdle");
+            
+        }
     }
 
     //gets input from keyboard
